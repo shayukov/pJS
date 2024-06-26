@@ -137,8 +137,6 @@ exports.textData = function () {
 
     const ROOT = `${arrAdressTXT} \n\n ${sum_km} км пройденно!`
 
-
-
     return (ROOT);   // выводим считанные данные
 
 }
