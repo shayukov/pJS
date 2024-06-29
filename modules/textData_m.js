@@ -5,7 +5,8 @@ const { error } = require('console');
 const adressArr = fs.readFileSync('adress.txt').toString().split('\r\n');
 const adressArrKmPlus = fs.readFileSync('adress_kmPlus.txt').toString().split('\r\n');
 
-exports.textData = function () {
+// exports.textData = function () {
+function textData() {
     const adressArr2 = fs.readFileSync('adress2.txt').toString().split('\n');
     const adressArr2min = fs.readFileSync('adress2min.txt').toString().split('\n');
     const arr_km = [18, 20, 14, 24, 18, 20, 12, 18, 14, 20, 16, 28, 16, 26, 18, 20, 12, 16, 20, 14, 20, 22, 28, 20, 16, 8, 8, 6, 4, 2, 10, 4, 6, 8, 8, 10];
@@ -132,11 +133,12 @@ exports.textData = function () {
         error('Ошибка! Повторите заново!')
     }
 
-    let arrAdressTXT = arrStrAdress.toString().split('<br>').toString()
-    arrAdressTXT = arrAdressTXT.replace(/,/g, `\n`)
-
-    const ROOT = `${arrAdressTXT} \n\n ${sum_km} км пройденно!`
+    let arrAdressTXT = arrStrAdress.toString()
+    arrAdressTXT = arrAdressTXT.replace(/,/g, `<br><br>`)
+    const ROOT = `${arrAdressTXT} <br><br> ${sum_km} км пройденно!`
 
     return (ROOT);   // выводим считанные данные
 
 }
+
+module.exports.textData = textData;

@@ -3,7 +3,9 @@ const express = require('express'),
   // bodyParser = require('body-parser'),
   // fs = require('fs'),
   // parse = require('node-html-parser').parse,
-  { textData } = require('./modules/textData');
+  { textData } = require('./modules/textData_m');
+const { generatorHtml } = require('./index.js');
+
 
 
 // создаем парсер для данных application/x-www-form-urlencoded
@@ -19,11 +21,11 @@ app.get('/', (req, res) => {
   res.sendFile(__dirname + '/index.html')
 })
 
-app.get('/result.html', (req, res) => {
+app.get('/genHtml.html', (req, res) => {
   exports.reqQuery = req.query
-  res.setHeader('Content-Type', 'text/plain; charset=utf-8')
+  // res.setHeader('Content-Type', 'text/plain; charset=utf-8')
   res.end(
-    textData()
+    generatorHtml(textData())
   )
 })
 
